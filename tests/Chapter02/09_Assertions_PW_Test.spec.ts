@@ -46,8 +46,10 @@ test('Assertions in playwright', async ({ page }) => {
         'https://www.youtube.com/results?search_query=playwright+by+testers+talk'
     );
 
-    await expect(page).toHaveTitle(
-        'playwright by testers talk - YouTube'
+
+    //soft assertion ;eventhough if this step failed, rest will be executed
+    await expect.soft(page).toHaveTitle(
+        'playwright by test talk - YouTube'
     );
 
 
