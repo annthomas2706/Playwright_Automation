@@ -1,0 +1,13 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="7.488112999999895">
+<testsuite name="Chapter04\04_TextContent_GetAttribute_Test.spec.ts" timestamp="2026-05-22T09:13:35.117Z" hostname="Google Chrome" tests="1" failures="0" skipped="0" time="6.231" errors="0">
+<testcase name="Get Text &amp; Get attribute value in playwright" classname="Chapter04\04_TextContent_GetAttribute_Test.spec.ts" time="6.231">
+<system-out>
+<![CDATA[Name is : Ann Mary Thomas
+Attribute value is : repositories /annthomas2706?tab=repositories
+
+[[ATTACHMENT|test-results\Chapter04-04_TextContent_G-6c9cf-tribute-value-in-playwright-Google-Chrome\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
