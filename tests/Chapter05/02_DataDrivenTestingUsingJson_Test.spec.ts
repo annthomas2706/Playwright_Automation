@@ -20,7 +20,7 @@ type TestData =
 const typedTestData = testData as TestData;
 
 //for...in is used to iterate over keys/indexes,(Here to iterate over keys of TestData obj)
-for (const dataSetName in typedTestData) {//on each iteration it gets each keys ie TestData and TestData2
+for (const dataSetName in typedTestData) {//on each iteration it gets each keys ie TestData1 and TestData2
 
     //to get values of object using keys,we use obj[keys] return its value
     // Here  on 1st iter: TestData[TestDataSet1] is assigned to skill 
