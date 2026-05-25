@@ -20,7 +20,7 @@ export class HomePage {
         await this.page.goto(`${process.env.JQUERY_HOME_URL}`);
     }
 
-    async searchDemo(keyWord:string) {
+    async searchDemo(keyWord: string) {
 
         await this.searchBox.click();
         await this.searchBox.press('CapsLock');

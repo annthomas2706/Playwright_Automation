@@ -1,19 +1,20 @@
-import { test, expect,Page, Locator } from '@playwright/test';
+import { test, expect, Page, Locator } from '@playwright/test';
 
 
-export class DemoPage{
+export class DemoPage {
     readonly page: Page;
-    readonly droppableLink:Locator;
+    readonly droppableLink: Locator;
 
 
 
-    constructor(page:Page){
-        this.page=page; 
-        this.droppableLink= page.locator('#content').getByRole('link', { name: 'Droppable' })
-      }
+    constructor(page: Page) {
+        this.page = page;
+        this.droppableLink = page.locator('#content').getByRole('link', { name: 'Droppable' })
+    }
 
- async clickDroppable(){
+    async clickDroppable() {
 
-    await this.droppableLink.click();}
+        await this.droppableLink.click();
+    }
 
- }
+}

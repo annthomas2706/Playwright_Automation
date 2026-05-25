@@ -4,9 +4,7 @@ import { HomePage } from '../../src/pages/HomePage';
 import { DemoPage } from '../../src/pages/DemosPage';
 import { DemoDroppableValidationPage } from '../../src/pages/DemoDroppableValidationPage';
 
-/**
- * author Testers Talk
- */
+
 test('Page Object Model Test in Playwright', async ({ page }) => {
 
     // Create object of homepage

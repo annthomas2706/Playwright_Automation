@@ -50,6 +50,12 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     actionTimeout:10000,
+
+    //to maximize browser
+    launchOptions:
+    {
+      args:['--start-maximized']
+    },
   },
 
   /* Configure projects for major browsers */
@@ -86,10 +92,11 @@ export default defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' ,viewport: { width: 785, height: 556 },},
     },
   ],
 
+}
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
