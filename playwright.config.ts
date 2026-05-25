@@ -92,11 +92,11 @@ export default defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' ,viewport: { width: 785, height: 556 },},
-    },
-  ],
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' ,viewport: { width: 785, height: 556 }}
+    }
+  ]
 
-}
+,
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
