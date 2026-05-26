@@ -26,6 +26,8 @@ for (const dataSetName in typedTestData) {//on each iteration it gets each keys 
     // Here  on 1st iter: TestData[TestDataSet1] is assigned to skill 
     // ie value of TestDataSet1 is assigned to skill
     const tabs = typedTestData[dataSetName as keyof TestData];
+    /*inisde for in dataSetName is a string, so if we use typedRestData[strimg] it gives error it can have ony 2 types 
+     either TestDataset1 or TestDataSet2 , so we use keyof TestData*/
 
 
 

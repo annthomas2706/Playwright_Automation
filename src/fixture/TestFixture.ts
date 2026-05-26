@@ -2,6 +2,8 @@ import { test as base } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { DemoPage } from '../pages/DemosPage';
 import { DemoDroppableValidationPage } from '../pages/DemoDroppableValidationPage';
+import { loadTestData } from '../utils/JsonHelper';
+import { TestData } from '../interface/Module1TestData.interface';
 
 /**
  * author Testers Talk
@@ -11,6 +13,7 @@ export const test = base.extend<{
     homePage:HomePage;
     demoPage:DemoPage;
     demoDropPage:DemoDroppableValidationPage;
+    testData: TestData;
 }>({
     saveLogs: [async ({ }, use) => {//use to pass obj to test
         console.log('Global before is running...');
@@ -36,6 +39,11 @@ export const test = base.extend<{
         await use(demoDropPage);
 
     },
+
+      testData: async ({ }, use) => {
+        const data = await loadTestData();
+        await use(data);
+    }
     
    
 });
