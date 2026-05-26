@@ -34,7 +34,7 @@ export const test = base.extend<{
 
     },
     
-    demoDropPage:async({page},use)=>{
+    demoDropPage:async({page},use)=>{   
         const demoDropPage=new DemoDroppableValidationPage(page);
         await use(demoDropPage);
 

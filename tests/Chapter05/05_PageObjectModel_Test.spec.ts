@@ -5,7 +5,7 @@ import { DemoPage } from '../../src/pages/DemosPage';
 import { DemoDroppableValidationPage } from '../../src/pages/DemoDroppableValidationPage';
 
 
-test('Page Object Model Test in Playwright', async ({ page }) => {
+test('Page Object Model Test in Playwright',{tag:['@playWrightWithJenkins']}, async ({ page }) => {
 
     // Create object of homepage
     const homePage = new HomePage(page);
