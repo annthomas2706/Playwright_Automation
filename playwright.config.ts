@@ -32,11 +32,11 @@ export default defineConfig({
   //By default open takes value 'on-failure',ie if nothing is given-means it automatically opens report on failure
   reporter: [
               ['html'],
-            /*  ['list'],
+              ['list'],
               ['dot'],
               ['json',{outputFile:'json-test-report.json'}],
               ['junit',{outputFile:'junit-test-report.xml'}],
-              ['allure-playwright'],*/
+              ['allure-playwright'],
             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
