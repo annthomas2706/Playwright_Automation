@@ -1,0 +1,20 @@
+POST API Response : {
+  "bookingid": 2202,
+  "booking": {
+    "firstname": "Phyllis",
+    "lastname": "Botsford",
+    "totalprice": 6454,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2025-01-25",
+      "checkout": "2025-01-27"
+    },
+    "additionalneeds": "breakfast"
+  }
+}
+Booking Id : 2202
+GET API Response : [
+  {
+    "bookingid": 2202
+  }
+]
