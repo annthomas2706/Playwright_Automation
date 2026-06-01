@@ -77,13 +77,13 @@
   },
   "suites": [
     {
-      "title": "Chapter04\\04_TextContent_GetAttribute_Test.spec.ts",
-      "file": "Chapter04/04_TextContent_GetAttribute_Test.spec.ts",
+      "title": "Chapter06\\03_Dynamic_TypeSafety_Post_APIRequests.spec.ts",
+      "file": "Chapter06/03_Dynamic_TypeSafety_Post_APIRequests.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Get Text & Get attribute value in playwright",
+          "title": "Create TypeSafety POST API Request using dynamic api request body in playwright & typescript",
           "ok": true,
           "tags": [],
           "tests": [
@@ -95,38 +95,29 @@
               "projectName": "Google Chrome",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 10,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6231,
+                  "duration": 1593,
                   "errors": [],
                   "stdout": [
                     {
-                      "text": "Name is : Ann Mary Thomas\n"
-                    },
-                    {
-                      "text": "Attribute value is : repositories /annthomas2706?tab=repositories\n"
+                      "text": "POST API Response : {\n  \"bookingid\": 2052,\n  \"booking\": {\n    \"firstname\": \"Wendell\",\n    \"lastname\": \"Bins\",\n    \"totalprice\": 1875,\n    \"depositpaid\": true,\n    \"bookingdates\": {\n      \"checkin\": \"2025-01-25\",\n      \"checkout\": \"2025-01-27\"\n    },\n    \"additionalneeds\": \"breakfast\"\n  }\n}\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-22T09:13:35.679Z",
+                  "startTime": "2026-06-01T14:34:56.211Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\marya\\OneDrive\\Desktop\\PlayWright_Automation\\test-results\\Chapter04-04_TextContent_G-6c9cf-tribute-value-in-playwright-Google-Chrome\\test-finished-1.png"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "d0ab0b212ac5590ee1dd-a953f6b1b94d13bc0e02",
-          "file": "Chapter04/04_TextContent_GetAttribute_Test.spec.ts",
-          "line": 5,
+          "id": "f5e90f89f1c846fa7790-422100fc48fb24bba983",
+          "file": "Chapter06/03_Dynamic_TypeSafety_Post_APIRequests.spec.ts",
+          "line": 13,
           "column": 5
         }
       ]
@@ -134,8 +125,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-22T09:13:34.599Z",
-    "duration": 7488.112999999896,
+    "startTime": "2026-06-01T14:34:54.035Z",
+    "duration": 3866.5289999991655,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

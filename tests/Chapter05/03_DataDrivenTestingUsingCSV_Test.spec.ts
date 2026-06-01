@@ -13,7 +13,7 @@ type TestRecords = {
 const records = parse(
     fs.readFileSync(path.join(__dirname, '../../test-data/qa/testdata.csv')),//read file
     {
-        columns: true,//read all columns
+        columns: true,//"Treat the first row as column names and convert rows into objects.
         skipEmptyLines: true//skip emty rows
     }
 ) as TestRecords[];//finally assigned then parsed data to TestRecord obj

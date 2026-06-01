@@ -1,0 +1,120 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Chapter06\POST_API_Dynamic_Requests.spec.ts >> Create POST API Request using dynamic api request body in playwright & typescript
+- Location: tests\Chapter06\POST_API_Dynamic_Requests.spec.ts:16:5
+
+# Error details
+
+```
+Error: ENOENT: no such file or directory, open 'C:\Users\marya\OneDrive\Desktop\PlayWright_Automation\ test-data\api_requests\POST_API_Dynamic_Requests.json'
+```
+
+# Test source
+
+```ts
+  1  | // Import playwright module
+  2  | import { test, expect } from '@playwright/test';
+  3  | 
+  4  | import { formatAPIRequest } from '../../src/utils/APIHelper'
+  5  | import path from 'path';
+  6  | import fs from 'fs';
+  7  | import { utils } from 'xlsx';
+  8  | 
+  9  | //import { faker } from '@faker-js/faker';
+  10 | 
+  11 | test.use({
+  12 |     baseURL: process.env.BASE_API_URL,
+  13 | })
+  14 | 
+  15 | 
+  16 | test('Create POST API Request using dynamic api request body in playwright & typescript', async ({ request }) => {
+  17 | 
+  18 |     // Reading json file
+  19 |     const filePath = path.join(__dirname, '../../ test-data/api_requests/POST_API_Dynamic_Requests.json');
+  20 |   
+> 21 |     const jsonTemplate = fs.readFileSync(filePath, 'utf-8');
+     |                             ^ Error: ENOENT: no such file or directory, open 'C:\Users\marya\OneDrive\Desktop\PlayWright_Automation\ test-data\api_requests\POST_API_Dynamic_Requests.json'
+  22 | 
+  23 |     const values = ['cypress by testers talk', 'javascript by testers talk', 1000];
+  24 | 
+  25 |     // Updating POST API request body
+  26 |     const postAPIRequest = await formatAPIRequest(jsonTemplate, values);
+  27 | 
+  28 |     // Create POST API Request
+  29 |     const postAPIResponse = await request.post(`/booking`, { data: JSON.parse(postAPIRequest) });
+  30 | 
+  31 |     // Print JSON API response
+  32 |     const jsonPOSTAPIResponse = await postAPIResponse.json();
+  33 |     console.log('POST API Response : ' + JSON.stringify(jsonPOSTAPIResponse, null, 2));
+  34 | 
+  35 |     // Validating api response
+  36 |     expect(postAPIResponse.status()).toBe(200);
+  37 |     expect(postAPIResponse.statusText()).toBe('OK');
+  38 |     expect(postAPIResponse.headers()['content-type']).toContain('application/json');
+  39 | 
+  40 |     // Validate propert/key names
+  41 |     expect(jsonPOSTAPIResponse.booking).toHaveProperty('firstname');
+  42 |     expect(jsonPOSTAPIResponse.booking).toHaveProperty('lastname');
+  43 | 
+  44 |     expect(jsonPOSTAPIResponse.booking.bookingdates).toHaveProperty('checkin');
+  45 |     expect(jsonPOSTAPIResponse.booking.bookingdates).toHaveProperty('checkout');
+  46 | 
+  47 |     // Validate API response body
+  48 |     expect(jsonPOSTAPIResponse.bookingid).toBeGreaterThan(0);
+  49 |     expect(jsonPOSTAPIResponse.booking.firstname).toBe('Ann');
+  50 |     expect(jsonPOSTAPIResponse.booking.lastname).toBe('Thomas');
+  51 | 
+  52 |     expect(jsonPOSTAPIResponse.booking.bookingdates.checkin).toBe('2025-01-15');
+  53 |     expect(jsonPOSTAPIResponse.booking.bookingdates.checkout).toBe('2025-01-17');
+  54 | });
+  55 | 
+  56 | 
+  57 | // test('Create POST API Request using dynamic api request body in playwright & typescript 2', async ({ request }) => {
+  58 | 
+  59 | //     // Reading json file
+  60 | //     const filePath = path.join(__dirname, '../../test-data/api_requests/Dynamic_POST_API_Request.json');
+  61 | //     const jsonTemplate = fs.readFileSync(filePath, 'utf-8');
+  62 | 
+  63 | //     const firstName = faker.person.firstName();
+  64 | //     const lastName = faker.person.lastName();
+  65 | //     const totalPrice = faker.number.int({ min: 1000, max: 10000 });
+  66 | 
+  67 | //     const values = [firstName, lastName, totalPrice];
+  68 | 
+  69 | //     // Updating POST API request body
+  70 | //     const postAPIRequest = await formatAPIRequest(jsonTemplate, values);
+  71 | 
+  72 | //     // Create POST API Request
+  73 | //     const postAPIResponse = await request.post(`/booking`, { data: JSON.parse(postAPIRequest) });
+  74 | 
+  75 | //     // Print JSON API response
+  76 | //     const jsonPOSTAPIResponse = await postAPIResponse.json();
+  77 | //     console.log('POST API Response : ' + JSON.stringify(jsonPOSTAPIResponse, null, 2));
+  78 | 
+  79 | //     // Validating api response
+  80 | //     expect(postAPIResponse.status()).toBe(200);
+  81 | //     expect(postAPIResponse.statusText()).toBe('OK');
+  82 | //     expect(postAPIResponse.headers()['content-type']).toContain('application/json');
+  83 | 
+  84 | //     // Validate propert/key names
+  85 | //     expect(jsonPOSTAPIResponse.booking).toHaveProperty('firstname');
+  86 | //     expect(jsonPOSTAPIResponse.booking).toHaveProperty('lastname');
+  87 | 
+  88 | //     expect(jsonPOSTAPIResponse.booking.bookingdates).toHaveProperty('checkin');
+  89 | //     expect(jsonPOSTAPIResponse.booking.bookingdates).toHaveProperty('checkout');
+  90 | 
+  91 | //     // Validate API response body
+  92 | //     expect(jsonPOSTAPIResponse.bookingid).toBeGreaterThan(0);
+  93 | //     expect(jsonPOSTAPIResponse.booking.firstname).toBe(firstName);
+  94 | //     expect(jsonPOSTAPIResponse.booking.lastname).toBe(lastName);
+  95 | 
+  96 | //     expect(jsonPOSTAPIResponse.booking.bookingdates.checkin).toBe('2025-01-15');
+  97 | //     expect(jsonPOSTAPIResponse.booking.bookingdates.checkout).toBe('2025-01-17');
+  98 | // });
+```
