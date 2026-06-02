@@ -20,13 +20,13 @@ test('Mock API request in playwright', async ({ page }) => {
     //// Modifies the intercepted request and forwards it to the real server;
     // the server response goes directly to the browser 
 
-    // Wait for the API response that matches the specified endpoint
+    // Wait for the API response that matches the specified endpoint--to fetch response from brwsr
     const responsePromise = page.waitForResponse('**/api/v1/fruits');
 
     // Navigate to the application, which triggers the API request
     await page.goto('https://demo.playwright.dev/api-mocking/');
 
-    // Capture the API response once it is received
+    // Capture the API response once it is received from Server
     const response = await responsePromise;
 
     // Validate that the API returned a successful status code
