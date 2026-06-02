@@ -6,14 +6,13 @@ import { getPOSTAPIRequestBody } from '../../src/utils/APIHelper';
 import { faker } from '@faker-js/faker';
 
 import tokenAPIRequest from '../../test-data/api_requests/Token_API_Request.json'
-import putAPIRequest from '../../test-data/api_requests/PUT_API_Request.json'
+import patchAPIRequest from '../../test-data/api_requests/PATCH_API_Request.json'
 
 test.use({
     baseURL: process.env.BASE_API_URL,
 })
 
-
-test('Create PUT API Request using playwright & typescript', async ({ request }) => {
+test('Create PATCH API Request using playwright & typescript', async ({ request }) => {
 
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
@@ -74,20 +73,20 @@ test('Create PUT API Request using playwright & typescript', async ({ request })
     const token = tokenAPIJSONResponse.token;
     console.log('Token : ' + token);
 
-    // Create PUT API Request
-    const putAPIResponse = await request.put(`/booking/${bookingId}`, {
+    // Create PATCH API Request
+    const patchAPIResponse = await request.patch(`/booking/${bookingId}`, {
         headers: {
             "Content-Type": "application/json",
-            "Cookie": `token=${token}`//here cookie is passed inside header that is why in value token=value,for put method no Cookie confgrtns like header
+            "Cookie": `token=${token}`
         },
-        data: putAPIRequest,
+        data: patchAPIRequest,
     })
 
     // Validate status code, status text
-    expect(putAPIResponse.status()).toBe(200);
-    expect(putAPIResponse.statusText()).toBe('OK');
+    expect(patchAPIResponse.status()).toBe(200);
+    expect(patchAPIResponse.statusText()).toBe('OK');
 
     // Print GET API response
-    const putAPIJSONResponse = await putAPIResponse.json();
-    console.log('PUT API Response : ' + JSON.stringify(putAPIJSONResponse, null, 2));
+    const patchAPIJSONResponse = await patchAPIResponse.json();
+    console.log('PATCH API Response : ' + JSON.stringify(patchAPIJSONResponse, null, 2));
 });
